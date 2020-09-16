@@ -1,12 +1,10 @@
-let Bird = function (x, y, speedX, speedY) {
+function Bird (x, y) {
     this.x = x;
     this.y = y;
-    this.speedX = speedX;
-    this.speedY = speedY;
     this.drawBird = (ctx) => {
         ctx.beginPath();
-        ctx.rect(x, y, 100, 100);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(x, y, 20, 20);
         ctx.stroke();
     }
     this.move = () => {
