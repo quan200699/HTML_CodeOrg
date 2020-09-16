@@ -6,6 +6,7 @@ let Bird = function (x, y, speedX, speedY) {
     this.drawBird = (ctx) => {
         ctx.beginPath();
         ctx.rect(x, y, 100, 100);
+        ctx.fillStyle = "green";
         ctx.stroke();
     }
     this.move = () => {
