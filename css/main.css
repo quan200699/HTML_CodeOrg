@@ -1,9 +1,8 @@
-
 #blocks {
     height: 100%;
     width: 13%;
     margin-left: 15px;
-    background-color: #c8c8c8;
+    background-color: #ddd;
     border-bottom-right-radius: 3%;
     border-top-right-radius: 3%;
 }
@@ -11,6 +10,7 @@
 #work-space {
     height: 100%;
     width: 85%;
+    background-color: #fff;
 }
 
 .game-play-body {
@@ -18,7 +18,7 @@
 }
 
 .game-play-header {
-    background-color: blueviolet;
+    background-color: rgb(118, 101, 160);
     color: white;
     width: 100%;
 }
@@ -63,7 +63,7 @@
 
 #instructions-body {
     background-color: rgb(221, 221, 221);
-    height: 30px;
+    height: 92px;
 }
 
 #instructions {
