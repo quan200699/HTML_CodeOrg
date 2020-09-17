@@ -31,6 +31,10 @@
             width: 100%;
         }
 
+        .game-play-header > table, tr, td {
+            border: 1px solid #fbfb77;
+        }
+
         #blocks-header {
             width: 13%;
         }
@@ -47,48 +51,76 @@
             margin-left: 5px;
             color: white;
         }
+
+        .left {
+            width: 25%;
+            margin-right: 15px;
+        }
+
+        .right {
+            width: 72%;
+        }
+
+        #instructions-header {
+            background-color: #c795ff;
+        }
+
+        #instructions-header > p {
+            margin-left: 10px;
+        }
+
+        #instructions-body {
+            background-color: #c6c6c6;
+            height: 30px;
+        }
+
+        #instructions {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">CodeOrg</span>
-    </nav>
-    <div class="row">
-        <div class="col-4">
-            <div id="game-play">
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">CodeOrg</span>
+</nav>
+<div class="row">
+    <div class="left" id="game-play">
+    </div>
+    <div class="right">
+        <div>
+            <div id="instructions">
+                <div id="instructions-header">
+                    <span>Instructions</span>
+                </div>
+                <div id="instructions-body">
+                </div>
             </div>
         </div>
-        <div class="col-8">
-            <div>
-                <canvas id="canvas1" style="background: aqua; width: 100%; height: 50px"></canvas>
+        <table class="game-play-header">
+            <tr>
+                <td id="blocks-header" class="text-center">
+                    Blocks
+                </td>
+                <td id="work-space-header" class="text-center">
+                    Workspace
+                </td>
+            </tr>
+        </table>
+        <div class="row game-play-body">
+            <div id="blocks">
+                <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                    <li>
+                        <div class="block">move forward</div>
+                    </li>
+                    <li>
+                        <div class="block">turn left</div>
+                    </li>
+                    <li>
+                        <div class="block">turn right</div>
+                    </li>
+                </ul>
             </div>
-            <table class="game-play-header">
-                <tr>
-                    <td id="blocks-header" class="text-center">
-                        Blocks
-                    </td>
-                    <td id="work-space-header" class="text-center">
-                        Workspace
-                    </td>
-                </tr>
-            </table>
-            <div class="row game-play-body">
-                <div id="blocks">
-                    <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                        <li>
-                            <div class="block">move forward</div>
-                        </li>
-                        <li>
-                            <div class="block">turn left</div>
-                        </li>
-                        <li>
-                            <div class="block">turn right</div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="work-space">
-                </div>
+            <div id="work-space">
             </div>
         </div>
     </div>

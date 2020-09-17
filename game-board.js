@@ -5,7 +5,7 @@ function GameBoard(id, width, height) {
     this.drawGameBoard = () => {
         let draw = "";
         draw += `<canvas id="${this.id}" width="${this.width}" height="${this.height}" 
-                    style="border: black; background: bisque; margin-top: ${GAME_BOARD_TOP}px"></canvas>`
+                    style="border: black; background: bisque;"></canvas>`
         document.getElementById(GAME_PLAY_ID).innerHTML = draw;
     }
     this.drawGame = (bird, pig) => {
