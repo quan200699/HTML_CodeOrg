@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="752c96ca-f131-4bd3-b9fc-319f982c424d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jQuery-function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
       <workItem from="1600238855524" duration="3358000" />
       <workItem from="1600257199157" duration="5860000" />
       <workItem from="1600269831666" duration="347000" />
-      <workItem from="1600308583053" duration="7583000" />
+      <workItem from="1600308583053" duration="8564000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1600238896627</created>
