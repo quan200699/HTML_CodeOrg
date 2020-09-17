@@ -12,7 +12,8 @@
             width: 13%;
             margin-left: 15px;
             background-color: #c8c8c8;
-            border-radius: 3%;
+            border-bottom-right-radius: 3%;
+            border-top-right-radius: 3%;
         }
 
         #work-space {
@@ -21,7 +22,7 @@
         }
 
         .game-play-body {
-            height: 500px;
+            height: 70vh;
         }
 
         .game-play-header {
@@ -36,6 +37,15 @@
 
         #work-space-header {
             width: 85%;
+        }
+
+        .block {
+            width: 75%;
+            background-color: cadetblue;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-left: 5px;
+            color: white;
         }
     </style>
 </head>
@@ -66,30 +76,14 @@
             <div class="row game-play-body">
                 <div id="blocks">
                     <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                        <li class="ui-widget-content ui-corner-tr">
-                            <h5 class="ui-widget-header">High Tatras</h5>
-                            <!--                            <img src="images/high_tatras_min.jpg" alt="The peaks of High Tatras" width="96" height="72">-->
-                            <!--                            <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"-->
-                            <!--                               class="ui-icon ui-icon-trash">Delete image</a>-->
+                        <li>
+                            <div class="block">move forward</div>
                         </li>
-                        <li class="ui-widget-content ui-corner-tr">
-                            <h5 class="ui-widget-header">High Tatras 2</h5>
-                            <!--                            <img src="images/high_tatras2_min.jpg" alt="The chalet at the Green mountain lake"-->
-                            <!--                                 width="96" height="72">-->
-                            <!--                            <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"-->
-                            <!--                               class="ui-icon ui-icon-trash">Delete image</a>-->
+                        <li>
+                            <div class="block">turn left</div>
                         </li>
-                        <li class="ui-widget-content ui-corner-tr">
-                            <h5 class="ui-widget-header">High Tatras 3</h5>
-                            <!--                            <img src="images/high_tatras3_min.jpg" alt="Planning the ascent" width="96" height="72">-->
-                            <!--                            <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"-->
-                            <!--                               class="ui-icon ui-icon-trash">Delete image</a>-->
-                        </li>
-                        <li class="ui-widget-content ui-corner-tr">
-                            <h5 class="ui-widget-header">High Tatras 4</h5>
-                            <!--                            <img src="images/high_tatras4_min.jpg" alt="On top of Kozi kopka" width="96" height="72">-->
-                            <!--                            <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"-->
-                            <!--                               class="ui-icon ui-icon-trash">Delete image</a>-->
+                        <li>
+                            <div class="block">turn right</div>
                         </li>
                     </ul>
                 </div>
