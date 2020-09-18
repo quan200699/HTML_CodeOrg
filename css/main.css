@@ -69,3 +69,11 @@
 #instructions {
     margin-bottom: 10px;
 }
+
+#begin-block {
+    background-color: rgb(253, 164, 0);
+    width: 90px;
+    color: white;
+    margin-left: 15px;
+    margin-top: 15px;
+}
