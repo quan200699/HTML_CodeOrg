@@ -1,5 +1,2 @@
-let bird = new Bird(200, 150);
-let pig = new Pig(200, 250);
-let gameBoard = new GameBoard(CANVAS_ID, GAME_BOARD_WIDTH, GAME_BOARD_HEIGHT);
+let gameBoard = new GameBoard(GAME_BOARD_ID, START_GAME);
 gameBoard.drawGameBoard();
-gameBoard.drawGame(bird, pig);
