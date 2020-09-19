@@ -172,6 +172,9 @@
     width: 93px;
     height: 40px;
     margin: 5px 10px 5px;
+    color: white;
+    font-size: 20px;
+    border-radius: .2em;
 }
 
 .speech-bubble {
