@@ -69,7 +69,7 @@
 
 #instructions-body {
     background-color: rgb(221, 221, 221);
-    height: 92px;
+    height: 67px;
 }
 
 #instructions {
@@ -84,19 +84,13 @@
     margin-top: 15px;
 }
 
-#instructions-content {
-    background-color: white;
-    border-radius: 10px;
-    margin: 5px 0px;
-    padding: 5px 10px;
-    position: relative;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: white;
+.instructions-image {
+    width: 6%;
 }
 
 .instructions-image > img {
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
 }
 
 .obstacles {
@@ -139,4 +133,28 @@
     width: 93px;
     height: 40px;
     margin: 5px 10px 5px;
+}
+
+.speech-bubble {
+    position: relative;
+    background: #ffffff;
+    border-radius: .4em;
+    height: 50px;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-right-color: #ffffff;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-left: -15px;
 }
