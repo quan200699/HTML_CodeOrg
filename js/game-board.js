@@ -18,14 +18,4 @@ function GameBoard(id, level) {
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
     }
-    // this.drawBackground = (ctx) => {
-    //     this.image.src = "img/background.png"
-    //     ctx.drawImage(this.image, 0, 0);
-    // }
-    // this.drawGame = (bird, pig) => {
-    //     let ctx = document.getElementById(this.id).getContext("2d");
-    //     this.drawBackground(ctx)
-    //     bird.drawBird(ctx);
-    //     pig.drawPig(ctx);
-    // }
 }
