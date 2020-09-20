@@ -124,7 +124,7 @@
 }
 
 .instructions-image {
-    width: 6%;
+    width: 2%;
 }
 
 .instructions-image > img {
@@ -181,8 +181,8 @@
     position: relative;
     background: #ffffff;
     border-radius: .4em;
-    height: 45px;
-    margin-top: 10px;
+    height: auto;
+    margin: auto;
     width: 90%;
 }
 
