@@ -12,69 +12,65 @@
 <nav class="navbar navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">CodeOrg</span>
 </nav>
-<div class="row">
-    <div class="left">
-        <div id="game-play"></div>
-        <div id="button-start">
-            <button id="button-game">Run</button>
+<div class="left">
+    <div id="game-play"></div>
+    <div id="button-start">
+        <button id="button-game">Run</button>
+    </div>
+</div>
+<div class="right">
+    <div id="instructions">
+        <div id="instructions-header">
+            <span>Instructions</span>
+        </div>
+        <div id="instructions-body">
+            <div class="row">
+                <div class="instructions-image">
+                    <img src="img/small_static_avatar.png" style="max-width: 50px;" alt=""/>
+                </div>
+                <div class="speech-bubble">
+                    <p style="margin-top: 10px; margin-left: 10px">Can you help me to catch the naughty pig?
+                        Stack a couple of
+                        "move forward" blocks
+                        together and press "Run" to help me get there.</p>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="right">
-        <div>
-            <div id="instructions">
-                <div id="instructions-header">
-                    <span>Instructions</span>
-                </div>
-                <div id="instructions-body">
-                    <div class="row">
-                        <div class="instructions-image">
-                            <img src="img/small_static_avatar.png" style="max-width: 50px;" alt=""/>
-                        </div>
-                        <div class="speech-bubble">
-                            <p style="margin-top: 10px; margin-left: 10px">Can you help me to catch the naughty pig?
-                                Stack a couple of
-                                "move forward" blocks
-                                together and press "Run" to help me get there.</p>
-                        </div>
+    <table class="game-play-header">
+        <tr>
+            <td id="blocks-header" class="text-center">
+                Blocks
+            </td>
+            <td id="work-space-header" class="text-center">
+                Workspace
+            </td>
+        </tr>
+    </table>
+    <div class="game-play-body">
+        <div id="blocks">
+            <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                <li>
+                    <div class="block">
+                        <p class="block-content">move forward</p>
                     </div>
-
-                </div>
-            </div>
+                </li>
+                <li>
+                    <div class="block">
+                        <p class="block-content">turn left</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="block">
+                        <p class="block-content">turn right</p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <table class="game-play-header">
-            <tr>
-                <td id="blocks-header" class="text-center">
-                    Blocks
-                </td>
-                <td id="work-space-header" class="text-center">
-                    Workspace
-                </td>
-            </tr>
-        </table>
-        <div class="row game-play-body">
-            <div id="blocks">
-                <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                    <li>
-                        <div class="block">
-                            <p class="block-content">move forward</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="block">
-                            <p class="block-content">turn left</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="block">
-                            <p class="block-content">turn right</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="work-space">
-                <div class="block" id="begin-block">
-                    <p class="block-content">when run</p>
-                </div>
+        <div id="work-space">
+            <div class="block" id="begin-block">
+                <p class="block-content">when run</p>
             </div>
         </div>
     </div>
