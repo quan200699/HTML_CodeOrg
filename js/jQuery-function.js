@@ -1,4 +1,5 @@
-
+var arrRun=[];
+var cout=0;
 
 $(function () {
 
@@ -6,36 +7,44 @@ $(function () {
     var $gallery = $("#gallery"),
         $blocks = $("#blocks");
 
-    // Let the gallery items be draggable
-    $("li", $gallery).draggable({
-        cancel: "a.ui-icon", // clicking an icon won't initiate dragging
-        revert: "invalid", // when not dropped, the item will revert back to its initial position
-        containment: "document",
+   //khi kéo vào thùng rác thì xóa
+    $('#trashcan').droppable({
+        drop: function(event, ui) {
+            ui.draggable.remove();
+            arrRun[ui.draggable[0].attributes[0].textContent] = "t";
+            // khi xóa cout2 = 0; để duyệt lại mảng arrRun
+            cout2=0;
+        }
+    });
+
+    // để các item kéo được
+    $(".block").draggable({
+        // cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+        // revert: "invalid", // when not dropped, the item will revert back to its initial position
+        // // containment: "document",
         helper: "clone",
         cursor: "move"
     });
 
-    // Let the trash be droppable, accepting the gallery items
-    $blocks.droppable({
-        accept: "#gallery > li",
+    // kéo thả vào when run
+    $("#work-space").droppable({
+        accept: ".block",
         classes: {
             "ui-droppable-active": "ui-state-highlight"
         },
         drop: function (event, ui) {
-            deleteImage(ui.draggable);
+            arrRun.push(ui.draggable[0].attributes[0].textContent);
+            $("#begin-block").append("<div name ='"+ cout + "'  style='background-color: cadetblue; border: 0.1px solid' class='block1'>" + ui.draggable[0].innerHTML + "</div>");
+           cout++;
+            $(".block1").draggable({
+                revert:true,
+                cursor: "move",
+
+            });
+            console.log(arrRun);
         }
     });
 
-    // Let the gallery be droppable as well, accepting items from the trash
-    $gallery.droppable({
-        accept: "#trash li",
-        classes: {
-            "ui-droppable-active": "custom-state-active"
-        },
-        drop: function (event, ui) {
-            recycleImage(ui.draggable);
-        }
-    });
 
     // Image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
