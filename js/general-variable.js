@@ -57,21 +57,21 @@ function thucHien(arrMain) {
         let str = parseInt(findIndexArrInput(arrMain));
         thucHienChuyenDoi(cout2, str, gameBoard, START_GAME);
 
-        console.log("cout2 = "+cout2);
+        console.log(cout2);
         cout2++;
 
 }
-
-
-
-function runGame(arrMain) {
-    let goiLaiHam;
+let goiLaiHam;
+let thuchien2 = function () {
     if (cout2 < arrRun.length) {
-        goiLaiHam  = setInterval(thucHien(arrMain), 50);
-        alert("a")
+        thucHien(START_GAME);
     }
     else {
-        alert("sai roi")
-        clearInterval(goiLaiHam);
+            alert("sai roi")
+            clearInterval(goiLaiHam);
         }
+}
+
+function runGame() {
+        goiLaiHam  = setInterval(thuchien2, 600);
 }
