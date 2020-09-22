@@ -1,6 +1,6 @@
 const GAME_PLAY_ID = 'game-play';
 const GAME_BOARD_ID = 'game-board';
-var cout2 = 0;
+var coustRepeats = 0;
 
 
 const START_GAME = [
@@ -13,70 +13,60 @@ const START_GAME = [
     '0', '0', '0', '0', '0', '0', '0', '0',
     '0', '0', '0', '0', '0', '0', '0', '0',
 ]
-const START_GAME2 = [
-    '0', '0', '0', '0', '0', '0', '0', '0',
-    '0', '0', '0', '0', '0', '0', '0', '0',
-    '0', '0', '0', '1', '-', '0', '0', '0',
-    '0', '0', '0', '0', '-', '0', '0', '0',
-    '0', '0', '0', '0', '-', '-', '2', '0',
-    '0', '0', '0', '0', '0', '0', '0', '0',
-    '0', '0', '0', '0', '0', '0', '0', '0',
-    '0', '0', '0', '0', '0', '0', '0', '0',
-]
 
 
 
-function findIndexArrInput(arrMain) {
+function findIndexArrInput(arrMap) {
 
-    for (let i = 0; i<arrMain.length;i++) {
-            if (arrMain[i]=='1'){
+    for (let i = 0; i<arrMap.length;i++) {
+            if (arrMap[i]=='1'){
                 console.log(i)
                 return i;
             }
         }
 }
 
-var win = true;
+var win1 = true;
 var win2 = false;
 
-function thucHienChuyenDoi(indexArrInput, i,gameBoard,arrMain) {
+function makeChange(indexArrInput, i,gameBoard,arrMap) {
 
         if (arrRun[indexArrInput] === "1"){
-            if (arrMain[i+8]==="-"){
-                arrMain[i+8]= "1";
-                arrMain[i]= "-";
+            if (arrMap[i+8]==="-"){
+                arrMap[i+8]= "1";
+                arrMap[i]= "-";
                 gameBoard.drawGameBoard();
             }else {
-                if (arrMain[i+8] === "2"){
-                    arrMain[i+8]= "1";
-                    arrMain[i]= "-";
+                if (arrMap[i+8] === "2"){
+                    arrMap[i+8]= "1";
+                    arrMap[i]= "-";
                     gameBoard.drawGameBoard();
-                    alert("You Win")
-                    win = true;
+                    // alert("You Win")
+                    win1 = true;
                     win2 = true;
                 } else {
                     alert("bạn đã sai")
-                    win = false;
+                    win1 = false;
                     win2 = false;
                 }
             }
 
         } else {
             if (arrRun[indexArrInput]=== "2"){
-                if (arrMain[i+1]==="-"){
-                    arrMain[i+1]= "1";
-                    arrMain[i]= "-";
+                if (arrMap[i+1]==="-"){
+                    arrMap[i+1]= "1";
+                    arrMap[i]= "-";
                     gameBoard.drawGameBoard();
                 }else {
-                    if (arrMain[i + 1] === "2") {
-                        arrMain[i + 1] = "1";
-                        arrMain[i] = "-";
+                    if (arrMap[i + 1] === "2") {
+                        arrMap[i + 1] = "1";
+                        arrMap[i] = "-";
                         gameBoard.drawGameBoard();
-                        alert("You Win")
-                        win = true;
+
+                        win1 = true;
                         win2 = true;
                     }else {
-                        win = false;
+                        win1 = false;
                         win2 = false;
                         alert("bạn đã sai")
                     }
@@ -84,48 +74,47 @@ function thucHienChuyenDoi(indexArrInput, i,gameBoard,arrMain) {
 
             } else {
                 if (arrRun[indexArrInput]=== "3"){
-                    if (arrMain[i-1]==="-"){
-                        arrMain[i-1]= "1";
-                        arrMain[i]= "-";
+                    if (arrMap[i-1]==="-"){
+                        arrMap[i-1]= "1";
+                        arrMap[i]= "-";
                         gameBoard.drawGameBoard();
                     } else {
-                        if (arrMain[i-1]==="2") {
-                            arrMain[i - 1] = "1";
-                            arrMain[i] = "-";
+                        if (arrMap[i-1]==="2") {
+                            arrMap[i - 1] = "1";
+                            arrMap[i] = "-";
                             gameBoard.drawGameBoard();
-                            alert("You Win")
-                            win = true;
+                            // alert("You Win")
+                            win1 = true;
                             win2 = true;
                         }else {
                             alert("bạn đã sai")
-                            win = false;
+                            win1 = false;
                             win2 = false;
                         }
                     }
-                } else {
-                    alert("bạn đã sai")
                 }
             }
         }
 }
 
-function thucHien(arrMain) {
-        let str = parseInt(findIndexArrInput(arrMain));
-        thucHienChuyenDoi(cout2, str, gameBoard, START_GAME);
+function callFunction(arrMap) {
+        let str = parseInt(findIndexArrInput(arrMap));
+        makeChange(coustRepeats, str, gameBoard, START_GAME);
 
-        console.log(cout2);
-        cout2++;
+        console.log(coustRepeats);
+        coustRepeats++;
 
 }
 
 let goiLaiHam;
-let thuchien2 = function () {
-    if (win) {
-        if (cout2 < arrRun.length) {
-            thucHien(START_GAME);
+let callFunction2 = function () {
+    if (win1) {
+        if (coustRepeats < arrRun.length) {
+            callFunction(START_GAME);
         } else {
             if (win2){
                 clearInterval(goiLaiHam);
+                alert("You Win")
             }else {
                 alert("Đường thiếu rồi")
                 clearInterval(goiLaiHam);
@@ -136,5 +125,9 @@ let thuchien2 = function () {
 }
 
 function runGame() {
-        goiLaiHam  = setInterval(thuchien2, 400);
+        goiLaiHam  = setInterval(callFunction2, 200);
+}
+
+function resetGame() {
+
 }

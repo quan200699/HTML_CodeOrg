@@ -12,8 +12,6 @@ $(function () {
         drop: function(event, ui) {
             ui.draggable.remove();
             arrRun[ui.draggable[0].attributes[0].textContent] = "t";
-            // khi xóa cout2 = 0; để duyệt lại mảng arrRun
-            cout2=0;
         }
     });
 
