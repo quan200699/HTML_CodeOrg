@@ -121,7 +121,7 @@ function callFunction(arrMap) {
 }
 
 let goiLaiHam;
-let callFunction2 = function (arrRun) {
+let callFunction2 = function () {
     console.log(arrRun);
     arrRun = filterArrRun(arrRun);
     console.log(arrRun);
