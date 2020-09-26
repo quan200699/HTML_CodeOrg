@@ -14,12 +14,24 @@ const START_GAME = [
     '0', '0', '0', '0', '0', '0', '0', '0',
 ]
 
+function filterArrRun(arrRun) {
+    let newArrRun=[];
+    for (let i = 0; i <arrRun.length;i++){
+        if(arrRun[i] !== "t"){
+            newArrRun.push(arrRun[i]);
+        }
+    }
+    return newArrRun;
+
+}
+
+
 
 
 function findIndexArrInput(arrMap) {
 
     for (let i = 0; i<arrMap.length;i++) {
-            if (arrMap[i]=='1'){
+            if (arrMap[i]==='1'){
                 console.log(i)
                 return i;
             }
@@ -98,6 +110,8 @@ function makeChange(indexArrInput, i,gameBoard,arrMap) {
 }
 
 function callFunction(arrMap) {
+
+
         let str = parseInt(findIndexArrInput(arrMap));
         makeChange(coustRepeats, str, gameBoard, START_GAME);
 
@@ -107,7 +121,11 @@ function callFunction(arrMap) {
 }
 
 let goiLaiHam;
-let callFunction2 = function () {
+let callFunction2 = function (arrRun) {
+    console.log(arrRun);
+    arrRun = filterArrRun(arrRun);
+    console.log(arrRun);
+
     if (win1) {
         if (coustRepeats < arrRun.length) {
             callFunction(START_GAME);
