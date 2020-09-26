@@ -1,5 +1,8 @@
 const GAME_PLAY_ID = 'game-play';
 const GAME_BOARD_ID = 'game-board';
+const forward = "1";
+const left = "2";
+const right = "3";
 
 var coustRepeats = 0;
 
