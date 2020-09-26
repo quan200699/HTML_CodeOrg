@@ -1,5 +1,3 @@
-var arrRun=[];
-var cout=0;
 
 $(function () {
 
