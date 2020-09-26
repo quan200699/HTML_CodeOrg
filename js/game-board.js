@@ -40,9 +40,6 @@ function filterArrRun(arrRun) {
 
 }
 
-
-
-
 function findIndexArrInput(arrMap) {
 
     for (let i = 0; i<arrMap.length;i++) {
@@ -135,7 +132,7 @@ function callFunction(arrMap) {
 }
 
 
-let callFunction2 = function () {
+function callFunction2(arrRun,START_GAME) {
     console.log(arrRun);
     arrRun = filterArrRun(arrRun);
     console.log(arrRun);
@@ -157,7 +154,9 @@ let callFunction2 = function () {
 }
 
 function runGame() {
-    goiLaiHam  = setInterval(callFunction2, 200);
+    goiLaiHam  = setInterval(function () {
+        callFunction2(arrRun,START_GAME);
+    }, 200);
 }
 
 function resetGame() {
