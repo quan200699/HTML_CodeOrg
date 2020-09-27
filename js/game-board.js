@@ -29,7 +29,7 @@ function GameBoard(id, level) {
     //     pig.drawPig(ctx);
     // }
 }
-
+// lọc mảng arrRun thành mảng mới không có ký tự thừa
 function filterArrRun(arrRun) {
     let newArrRun = [];
     for (let i = 0; i < arrRun.length; i++) {
@@ -40,26 +40,29 @@ function filterArrRun(arrRun) {
     return newArrRun;
 }
 
-function findIndexArrInput(arrMap) {
+// tìm vị trí của chim
+function findIndexBird(arrMap) {
 
     for (let i = 0; i < arrMap.length; i++) {
         if (arrMap[i] === '1') {
             return i;
+            console.log(i)
         }
     }
 }
 
-function checkOnMove(index,i, game_Board, arrMap) {
+// Hàm thay đổi mảng Map.
+function checkOnMove(index,i,gameBoard,arrMap) {
 
     if (arrMap[parseInt(i + index)] === "-") {
         arrMap[parseInt(i + index)] = "1";
         arrMap[i] = "-";
-        game_Board.drawGameBoard();
+        gameBoard.drawGameBoard();
     } else {
         if (arrMap[i + index] === "2") {
             arrMap[i + index] = "1";
             arrMap[i] = "-";
-            game_Board.drawGameBoard();
+            gameBoard.drawGameBoard();
             // alert("You Win")
             win1 = true;
             win2 = true;
@@ -72,32 +75,33 @@ function checkOnMove(index,i, game_Board, arrMap) {
 
 }
 
+// Hàm thực hiện thay đổi theo mảng RUN
+function makeChange(indexArrRun, i,gameBoard, arrMap) {
 
-function makeChange(indexArrInput, i, game_Board, arrMap) {
-
-    if (arrRun[indexArrInput] === forward) {
-        checkOnMove(8,i, game_Board, arrMap);
+    if (arrRun[indexArrRun] === forward) {
+        checkOnMove(8,i,gameBoard, arrMap);
     } else {
-        if (arrRun[indexArrInput] === left) {
-            checkOnMove(1,i, game_Board, arrMap);
+        if (arrRun[indexArrRun] === left) {
+            checkOnMove(1,i, gameBoard,arrMap);
         } else {
-            if (arrRun[indexArrInput] === right) {
-                checkOnMove(-1,i, game_Board, arrMap);
+            if (arrRun[indexArrRun] === right) {
+                checkOnMove(-1,i, gameBoard,arrMap);
             }
         }
     }
 }
 
+//Hàm gọi thực hiện hàm makeChange.
 function callFunction(arrMap) {
-    let str = parseInt(findIndexArrInput(arrMap));
-    makeChange(coustRepeats, str, gameBoard, START_GAME);
+    let str = parseInt(findIndexBird(arrMap));
+    makeChange(coustRepeats, str,gameBoard,arrMap);
     coustRepeats++;
 
 }
 
-
+// Hàm gọi để check win, level
 function callFunction2(START_GAME) {
-    console.log(arrRun);
+   // thực hiện lọc mảng arrRun.
     arrRun = filterArrRun(arrRun);
     console.log(arrRun);
 
@@ -106,25 +110,71 @@ function callFunction2(START_GAME) {
             callFunction(START_GAME);
         } else {
             if (win2) {
-                clearInterval(goiLaiHam);
-                alert("You Win")
+                level ++;
+                alert("You Win");
+
+                if (level === 1) {
+                    gameBoard.level = START_GAME2;
+                    resetVariables();
+                    clearWhenRun();
+                    gameBoard.drawGameBoard();
+                    clearInterval(goiLaiHam);
+                }
+                if (level === 2) {
+                    gameBoard.level = START_GAME3;
+                    resetVariables();
+                    clearWhenRun();
+                    gameBoard.drawGameBoard();
+                    clearInterval(goiLaiHam);
+                }
+                if (level === 3) {
+                    gameBoard.level = START_GAME4;
+                    resetVariables();
+                    clearWhenRun();
+                    gameBoard.drawGameBoard();
+                    clearInterval(goiLaiHam);
+                } else {
+                    clearInterval(goiLaiHam);
+                }
+
             } else {
                 alert("Đường thiếu rồi")
                 clearInterval(goiLaiHam);
             }
-
         }
     }else {
         clearInterval(goiLaiHam);
     }
 }
 
+//Hàm chạy khi nhấn When Run.
 function runGame() {
-    goiLaiHam = setInterval(function () {
-        callFunction2(START_GAME);
-    }, 200);
+    // tạo mảng mới để thay thế mảng Map ban đầu.
+    let newSTART_GAME = [];
+    newSTART_GAME = gameBoard.level;
+    gameBoard.level = newSTART_GAME;
+        goiLaiHam = setInterval(function () {
+            callFunction2(newSTART_GAME);
+        }, 300);
 }
 
 function resetGame() {
+    clearWhenRun();
+    resetVariables();
+    gameBoard.level=START_GAME1;
+    gameBoard.drawGameBoard();
+}
 
+// Hàm làm trắng WHen Run
+function clearWhenRun() {
+    document.getElementById("work-space").innerHTML = "<div id='begin-block'>when run</div>";
+}
+
+//Hàm reset biến.
+function resetVariables() {
+    coustRepeats = 0;
+    win1 = true;
+    win2 = false;
+    arrRun=[];
+    cout=0;
 }
