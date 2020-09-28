@@ -3,7 +3,7 @@ const GAME_BOARD_ID = 'game-board';
 const forward = "1";
 const left = "2";
 const right = "3";
-
+const levelGame = 5;
 
 
 var level = 0;

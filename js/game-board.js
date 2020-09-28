@@ -29,6 +29,8 @@ function GameBoard(id, level) {
     //     pig.drawPig(ctx);
     // }
 }
+
+
 // lọc mảng arrRun thành mảng mới không có ký tự thừa
 function filterArrRun(arrRun) {
     let newArrRun = [];
@@ -52,7 +54,7 @@ function findIndexBird(arrMap) {
 }
 
 // Hàm thay đổi mảng Map.
-function checkOnMove(index,i,gameBoard,arrMap) {
+function checkOnMove(index, i, gameBoard, arrMap) {
 
     if (arrMap[parseInt(i + index)] === "-") {
         arrMap[parseInt(i + index)] = "1";
@@ -76,59 +78,46 @@ function checkOnMove(index,i,gameBoard,arrMap) {
 }
 
 // Hàm thực hiện thay đổi theo mảng RUN
-function makeChange(indexArrRun, i,gameBoard, arrMap) {
+function makeChange(indexArrRun, i, gameBoard, arrMap) {
 
     if (arrRun[indexArrRun] === forward) {
-        checkOnMove(8,i,gameBoard, arrMap);
+        checkOnMove(8, i, gameBoard, arrMap);
     } else {
         if (arrRun[indexArrRun] === left) {
-            checkOnMove(1,i, gameBoard,arrMap);
+            checkOnMove(1, i, gameBoard, arrMap);
         } else {
             if (arrRun[indexArrRun] === right) {
-                checkOnMove(-1,i, gameBoard,arrMap);
+                checkOnMove(-1, i, gameBoard, arrMap);
             }
         }
     }
+    console.log(gameBoard.level)
 }
 
 //Hàm gọi thực hiện hàm makeChange.
 function callFunction(arrMap) {
     let str = parseInt(findIndexBird(arrMap));
-    makeChange(coustRepeats, str,gameBoard,arrMap);
+    makeChange(coustRepeats, str, gameBoard, arrMap);
     coustRepeats++;
 
 }
 
 // Hàm gọi để check win, level
-function callFunction2(START_GAME) {
-   // thực hiện lọc mảng arrRun.
+function callFunction2(arrMap) {
+    // thực hiện lọc mảng arrRun.
     arrRun = filterArrRun(arrRun);
     console.log(arrRun);
 
     if (win1) {
         if (coustRepeats < arrRun.length) {
-            callFunction(START_GAME);
+            callFunction(arrMap);
         } else {
             if (win2) {
-                level ++;
+                level++;
                 alert("You Win");
 
-                if (level === 1) {
-                    gameBoard.level = START_GAME2;
-                    resetVariables();
-                    clearWhenRun();
-                    gameBoard.drawGameBoard();
-                    clearInterval(goiLaiHam);
-                }
-                if (level === 2) {
-                    gameBoard.level = START_GAME3;
-                    resetVariables();
-                    clearWhenRun();
-                    gameBoard.drawGameBoard();
-                    clearInterval(goiLaiHam);
-                }
-                if (level === 3) {
-                    gameBoard.level = START_GAME4;
+                if (level <= levelGame) {
+                    gameBoard.level = eval("START_GAME" + (level + 1));
                     resetVariables();
                     clearWhenRun();
                     gameBoard.drawGameBoard();
@@ -142,7 +131,7 @@ function callFunction2(START_GAME) {
                 clearInterval(goiLaiHam);
             }
         }
-    }else {
+    } else {
         clearInterval(goiLaiHam);
     }
 }
@@ -150,19 +139,24 @@ function callFunction2(START_GAME) {
 //Hàm chạy khi nhấn When Run.
 function runGame() {
     // tạo mảng mới để thay thế mảng Map ban đầu.
-    let newSTART_GAME = [];
-    newSTART_GAME = gameBoard.level;
-    gameBoard.level = newSTART_GAME;
-        goiLaiHam = setInterval(function () {
-            callFunction2(newSTART_GAME);
-        }, 300);
+    let copySTART_GAME = gameBoard.level.slice();
+    console.log(copySTART_GAME);
+    console.log(START_GAME1);
+
+    gameBoard.level = copySTART_GAME;
+
+    goiLaiHam = setInterval(function () {
+        callFunction2(copySTART_GAME);
+    }, 300);
 }
 
 function resetGame() {
     clearWhenRun();
     resetVariables();
-    gameBoard.level=START_GAME1;
+    // eval() biến chuỗi thành biến
+    gameBoard.level = eval("START_GAME" + (level + 1));
     gameBoard.drawGameBoard();
+
 }
 
 // Hàm làm trắng WHen Run
@@ -175,6 +169,6 @@ function resetVariables() {
     coustRepeats = 0;
     win1 = true;
     win2 = false;
-    arrRun=[];
-    cout=0;
+    arrRun = [];
+    cout = 0;
 }
