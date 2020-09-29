@@ -1,8 +1,5 @@
 $(function () {
 
-    // There's the gallery and the trash
-    var $gallery = $("#gallery"),
-        $blocks = $("#blocks");
 
     //khi kéo vào thùng rác thì xóa
     $('#blocks').droppable({
