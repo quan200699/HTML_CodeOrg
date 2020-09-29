@@ -15,7 +15,8 @@
 <div class="left">
     <div id="game-play"></div>
     <div id="button-start">
-        <button id="button-game">Run</button>
+        <button id="button-game" onclick="runGame()">Run</button>
+        <button onclick="resetGame()">ResetGame</button>
     </div>
 </div>
 <div class="right">
@@ -67,6 +68,7 @@
                     </div>
                 </li>
             </ul>
+            <div id="trashcan" style="width: 100px; height: 50px; background-color: #fbfb77"></div>
         </div>
         <div id="work-space">
             <div class="block" id="begin-block">

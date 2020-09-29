@@ -1,5 +1,3 @@
-var arrRun=[];
-var cout=0;
 
 $(function () {
 
@@ -12,8 +10,6 @@ $(function () {
         drop: function(event, ui) {
             ui.draggable.remove();
             arrRun[ui.draggable[0].attributes[0].textContent] = "t";
-            // khi xóa cout2 = 0; để duyệt lại mảng arrRun
-            cout2=0;
         }
     });
 
@@ -34,8 +30,8 @@ $(function () {
         },
         drop: function (event, ui) {
             arrRun.push(ui.draggable[0].attributes[0].textContent);
-            $("#begin-block").append("<div name ='"+ cout + "'  style='background-color: cadetblue; border: 0.1px solid' class='block1'>" + ui.draggable[0].innerHTML + "</div>");
-           cout++;
+            $("#begin-block").append("<div name ='"+ count + "'  style='background-color: cadetblue; border: 0.1px solid' class='block1'>" + ui.draggable[0].innerHTML + "</div>");
+           count++;
             $(".block1").draggable({
                 revert:true,
                 cursor: "move",
