@@ -34,7 +34,6 @@ function filterArrRun(arrRun) {
 
 // tìm vị trí của chim
 function findIndexBird(arrMap) {
-
     for (let i = 0; i < arrMap.length; i++) {
         if (arrMap[i] === '1') {
             return i;
@@ -44,7 +43,6 @@ function findIndexBird(arrMap) {
 
 // Hàm thay đổi mảng Map.
 function checkOnMove(index, i, gameBoard, arrMap) {
-
     if (arrMap[parseInt(i + index)] === "-") {
         arrMap[parseInt(i + index)] = "1";
         arrMap[i] = "-";
@@ -68,7 +66,6 @@ function checkOnMove(index, i, gameBoard, arrMap) {
 
 // Hàm thực hiện thay đổi theo mảng RUN
 function makeChange(indexArrRun, i, gameBoard, arrMap) {
-
     if (arrRun[indexArrRun] === forward) {
         checkOnMove(8, i, gameBoard, arrMap);
     } else {
