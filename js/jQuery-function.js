@@ -1,13 +1,12 @@
-
 $(function () {
 
     // There's the gallery and the trash
     var $gallery = $("#gallery"),
         $blocks = $("#blocks");
 
-   //khi kéo vào thùng rác thì xóa
-    $('#trashcan').droppable({
-        drop: function(event, ui) {
+    //khi kéo vào thùng rác thì xóa
+    $('#blocks').droppable({
+        drop: function (event, ui) {
             ui.draggable.remove();
             arrRun[ui.draggable[0].attributes[0].textContent] = "t";
         }
@@ -30,12 +29,11 @@ $(function () {
         },
         drop: function (event, ui) {
             arrRun.push(ui.draggable[0].attributes[0].textContent);
-            $("#begin-block").append("<div name ='"+ count + "'  style='background-color: cadetblue; border: 0.1px solid' class='block1'>" + ui.draggable[0].innerHTML + "</div>");
-           count++;
-            $(".block1").draggable({
-                revert:true,
+            $('#play').append(`<div name="${count}" class="play-block">${ui.draggable[0].innerHTML}</div>`);
+            count++;
+            $(".play-block").draggable({
+                revert: true,
                 cursor: "move",
-
             });
             console.log(arrRun);
         }
