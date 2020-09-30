@@ -8,7 +8,7 @@ function GameBoard(id, level) {
             if (value === '0') {
                 gameBoard += `<div class="obstacles"></div>`
             } else if (value === '1') {
-                gameBoard += `<div class="birds" id="bird"></div>`
+                gameBoard += `<div class="birds" id="bird" style="background-size: 200px"></div>`
             } else if (value === '2') {
                 gameBoard += `<div class="pigs"></div>`
             } else {
@@ -17,6 +17,7 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
+        // drawBird("url('./img/idle_avatar.gif') 100px 50px");
     }
 }
 
@@ -39,6 +40,14 @@ function findIndexBird(arrMap) {
             return i;
         }
     }
+}
+
+drawBird = (value) => {
+    document.getElementById('bird').style.background = value;
+    document.getElementById('bird').style.backgroundSize  = '200px';
+    document.getElementById('bird').style.width = '50px';
+    document.getElementById('bird').style.height = '50px';
+
 }
 
 // Hàm thay đổi mảng Map.
@@ -70,10 +79,10 @@ function makeChange(indexArrRun, i, gameBoard, arrMap) {
         checkOnMove(8, i, gameBoard, arrMap);
     } else {
         if (arrRun[indexArrRun] === left) {
-            checkOnMove(1, i, gameBoard, arrMap);
+            drawBird('url(./img/idle_avatar.gif) 155px 50px')
         } else {
             if (arrRun[indexArrRun] === right) {
-                checkOnMove(-1, i, gameBoard, arrMap);
+                drawBird('url(./img/idle_avatar.gif) 50px 50px')
             }
         }
     }
