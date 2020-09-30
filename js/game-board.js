@@ -8,7 +8,7 @@ function GameBoard(id, level) {
             if (value === '0') {
                 gameBoard += `<div class="obstacles"></div>`
             } else if (value === '1') {
-                gameBoard += `<div class="birds"></div>`
+                gameBoard += `<div class="birds" id="bird"></div>`
             } else if (value === '2') {
                 gameBoard += `<div class="pigs"></div>`
             } else {
