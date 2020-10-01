@@ -14,7 +14,7 @@ var countRepeats = 0;
 var win1 = true;
 var win2 = false;
 
-var goiLaiHam;
+var intervalId;
 
 var arrRun = [];
 var count = 0;

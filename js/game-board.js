@@ -69,7 +69,6 @@ function checkOnMove(index, i, gameBoard, arrMap) {
             win2 = false;
         }
     }
-
 }
 
 // Hàm thực hiện thay đổi theo mảng RUN
@@ -117,18 +116,18 @@ function callFunction2(arrMap) {
                     resetVariables();
                     clearWhenRun();
                     gameBoard.drawGameBoard();
-                    clearInterval(goiLaiHam);
+                    clearInterval(intervalId);
                 } else {
-                    clearInterval(goiLaiHam);
+                    clearInterval(intervalId);
                 }
 
             } else {
                 alert("Đường thiếu rồi")
-                clearInterval(goiLaiHam);
+                clearInterval(intervalId);
             }
         }
     } else {
-        clearInterval(goiLaiHam);
+        clearInterval(intervalId);
     }
 }
 
@@ -141,7 +140,7 @@ function runGame() {
 
     gameBoard.level = copySTART_GAME;
 
-    goiLaiHam = setInterval(function () {
+    intervalId = setInterval(function () {
         callFunction2(copySTART_GAME);
     }, 300);
 }
