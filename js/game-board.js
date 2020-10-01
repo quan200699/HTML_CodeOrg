@@ -17,7 +17,7 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
-        drawBird(x, 50);
+        drawBird(x,50);
     }
 }
 
@@ -134,6 +134,7 @@ function callFunction2(arrMap) {
                     gameBoard.level = eval("START_GAME" + (level + 1));
                     resetVariables();
                     clearWhenRun();
+                    x=100;
                     gameBoard.drawGameBoard(x);
                     clearInterval(intervalId);
                 } else {
@@ -154,14 +155,12 @@ function callFunction2(arrMap) {
 function runGame() {
     // tạo mảng mới để thay thế mảng Map ban đầu.
     let copyStartGame = gameBoard.level.slice();
-    console.log(copyStartGame);
-    console.log(START_GAME1);
-    isStart = true;
+
     gameBoard.level = copyStartGame;
-    showButton();
+
     intervalId = setInterval(function () {
         callFunction2(copyStartGame);
-    }, 300);
+    }, 450);
 }
 
 function resetGame() {
@@ -169,14 +168,19 @@ function resetGame() {
     resetVariables();
     // eval() biến chuỗi thành biến
     gameBoard.level = eval("START_GAME" + (level + 1));
+    x = 100;
     gameBoard.drawGameBoard(x);
-    isStart = false;
-    showButton();
+
 }
 
 // Hàm làm trắng WHen Run
 function clearWhenRun() {
-    document.getElementById("work-space").innerHTML = "<div id='begin-block'>when run</div>";
+    document.getElementById("work-space").innerHTML = '<div id="play">\n' +
+        '                <div class="play-block" id="begin-block">\n' +
+        '                    <p class="block-content">when run</p>\n' +
+        '                </div>\n' +
+        '            </div>';
+
 }
 
 //Hàm reset biến.
@@ -186,14 +190,4 @@ function resetVariables() {
     win2 = false;
     arrRun = [];
     count = 0;
-}
-
-showButton = () =>{
-    if (isStart) {
-        document.getElementById('button-game').style.display='none';
-        document.getElementById('button-reset').style.display='inline-block';
-    }else {
-        document.getElementById('button-reset').style.display='none';
-        document.getElementById('button-game').style.display='inline-block';
-    }
 }

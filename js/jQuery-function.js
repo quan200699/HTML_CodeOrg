@@ -3,6 +3,7 @@ $(function () {
 
     //khi kéo vào thùng rác thì xóa
     $('#blocks').droppable({
+        accept: ".play-block",
         drop: function (event, ui) {
             ui.draggable.remove();
             arrRun[ui.draggable[0].attributes[0].textContent] = "t";
@@ -21,9 +22,7 @@ $(function () {
     // kéo thả vào when run
     $("#work-space").droppable({
         accept: ".block",
-        classes: {
-            "ui-droppable-active": "ui-state-highlight"
-        },
+
         drop: function (event, ui) {
             arrRun.push(ui.draggable[0].attributes[0].textContent);
             $('#play').append(`<div name="${count}" class="play-block">${ui.draggable[0].innerHTML}</div>`);
