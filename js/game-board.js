@@ -17,7 +17,6 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
-        // drawBird("url('./img/idle_avatar.gif') 100px 50px");
     }
 }
 
@@ -42,9 +41,9 @@ function findIndexBird(arrMap) {
     }
 }
 
-drawBird = (value) => {
-    document.getElementById('bird').style.background = value;
-    document.getElementById('bird').style.backgroundSize  = '200px';
+drawBird = (width, height) => {
+    document.getElementById('bird').style.background = `url(./img/idle_avatar.gif) ${width}px ${height}px`;
+    document.getElementById('bird').style.backgroundSize = '200px';
     document.getElementById('bird').style.width = '50px';
     document.getElementById('bird').style.height = '50px';
 
@@ -75,14 +74,16 @@ function checkOnMove(index, i, gameBoard, arrMap) {
 
 // Hàm thực hiện thay đổi theo mảng RUN
 function makeChange(indexArrRun, i, gameBoard, arrMap) {
-    if (arrRun[indexArrRun] === forward) {
+    if (arrRun[indexArrRun] === FORWARD) {
         checkOnMove(8, i, gameBoard, arrMap);
     } else {
-        if (arrRun[indexArrRun] === left) {
-            drawBird('url(./img/idle_avatar.gif) 155px 50px')
+        if (arrRun[indexArrRun] === LEFT) {
+            x += 50;
+            drawBird(x, 50)
         } else {
-            if (arrRun[indexArrRun] === right) {
-                drawBird('url(./img/idle_avatar.gif) 50px 50px')
+            if (arrRun[indexArrRun] === RIGHT) {
+                x -= 50;
+                drawBird(x, 50)
             }
         }
     }
@@ -111,7 +112,7 @@ function callFunction2(arrMap) {
                 level++;
                 alert("You Win");
 
-                if (level <= levelGame) {
+                if (level <= GAME_LEVEL) {
                     gameBoard.level = eval("START_GAME" + (level + 1));
                     resetVariables();
                     clearWhenRun();

@@ -1,11 +1,13 @@
 const GAME_PLAY_ID = 'game-play';
 const GAME_BOARD_ID = 'game-board';
-const forward = "1";
-const left = "2";
-const right = "3";
-const levelGame = 5;
+const FORWARD = "1";
+const LEFT = "2";
+const RIGHT = "3";
+const BACK = '4';
+const GAME_LEVEL = 5;
 
-
+var flagLeft = 0;
+var flagRIGHT = 0;
 var level = 0;
 var countRepeats = 0;
 
@@ -14,8 +16,10 @@ var win2 = false;
 
 var goiLaiHam;
 
-var arrRun=[];
-var count=0;
+var arrRun = [];
+var count = 0;
+
+var x = 100;
 
 const START_GAME1 = [
     '0', '0', '0', '0', '0', '0', '0', '0',
