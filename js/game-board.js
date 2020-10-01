@@ -1,7 +1,7 @@
 function GameBoard(id, level) {
     this.id = id;
     this.level = level
-    this.drawGameBoard = () => {
+    this.drawGameBoard = (x) => {
         let gameBoard = "";
         gameBoard += `<div class="row" id="${this.id}">`
         this.level.map(value => {
@@ -17,6 +17,7 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
+        drawBird(x,50);
     }
 }
 
@@ -54,12 +55,12 @@ function checkOnMove(index, i, gameBoard, arrMap) {
     if (arrMap[parseInt(i + index)] === "-") {
         arrMap[parseInt(i + index)] = "1";
         arrMap[i] = "-";
-        gameBoard.drawGameBoard();
+        gameBoard.drawGameBoard(x);
     } else {
         if (arrMap[i + index] === "2") {
             arrMap[i + index] = "1";
             arrMap[i] = "-";
-            gameBoard.drawGameBoard();
+            gameBoard.drawGameBoard(x);
             // alert("You Win")
             win1 = true;
             win2 = true;
@@ -74,15 +75,33 @@ function checkOnMove(index, i, gameBoard, arrMap) {
 // Hàm thực hiện thay đổi theo mảng RUN
 function makeChange(indexArrRun, i, gameBoard, arrMap) {
     if (arrRun[indexArrRun] === FORWARD) {
-        checkOnMove(8, i, gameBoard, arrMap);
+        checkOnMove(index, i, gameBoard, arrMap);
     } else {
         if (arrRun[indexArrRun] === LEFT) {
             x += 50;
             drawBird(x, 50)
+            if (index === 8) {
+                index = 1;
+            } else if (index === 1) {
+                index = -8;
+            } else if (index === -8) {
+                index = -1;
+            } else {
+                index = 8;
+            }
         } else {
             if (arrRun[indexArrRun] === RIGHT) {
                 x -= 50;
                 drawBird(x, 50)
+                if (index === 8) {
+                    index = -1;
+                } else if (index === -1) {
+                    index = -8;
+                } else if (index === -8) {
+                    index = 1;
+                } else {
+                    index = 8;
+                }
             }
         }
     }
@@ -115,7 +134,7 @@ function callFunction2(arrMap) {
                     gameBoard.level = eval("START_GAME" + (level + 1));
                     resetVariables();
                     clearWhenRun();
-                    gameBoard.drawGameBoard();
+                    gameBoard.drawGameBoard(x);
                     clearInterval(intervalId);
                 } else {
                     clearInterval(intervalId);
@@ -134,14 +153,14 @@ function callFunction2(arrMap) {
 //Hàm chạy khi nhấn When Run.
 function runGame() {
     // tạo mảng mới để thay thế mảng Map ban đầu.
-    let copySTART_GAME = gameBoard.level.slice();
-    console.log(copySTART_GAME);
+    let copyStartGame = gameBoard.level.slice();
+    console.log(copyStartGame);
     console.log(START_GAME1);
 
-    gameBoard.level = copySTART_GAME;
+    gameBoard.level = copyStartGame;
 
     intervalId = setInterval(function () {
-        callFunction2(copySTART_GAME);
+        callFunction2(copyStartGame);
     }, 300);
 }
 
@@ -150,7 +169,7 @@ function resetGame() {
     resetVariables();
     // eval() biến chuỗi thành biến
     gameBoard.level = eval("START_GAME" + (level + 1));
-    gameBoard.drawGameBoard();
+    gameBoard.drawGameBoard(x);
 
 }
 

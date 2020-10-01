@@ -3,11 +3,9 @@ const GAME_BOARD_ID = 'game-board';
 const FORWARD = "1";
 const LEFT = "2";
 const RIGHT = "3";
-const BACK = '4';
 const GAME_LEVEL = 5;
 
-var flagLeft = 0;
-var flagRIGHT = 0;
+var index = 8;
 var level = 0;
 var countRepeats = 0;
 
