@@ -17,7 +17,7 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
-        drawBird(x,50);
+        drawBird(x, 50);
     }
 }
 
@@ -156,9 +156,9 @@ function runGame() {
     let copyStartGame = gameBoard.level.slice();
     console.log(copyStartGame);
     console.log(START_GAME1);
-
+    isStart = true;
     gameBoard.level = copyStartGame;
-
+    showButton();
     intervalId = setInterval(function () {
         callFunction2(copyStartGame);
     }, 300);
@@ -170,7 +170,8 @@ function resetGame() {
     // eval() biến chuỗi thành biến
     gameBoard.level = eval("START_GAME" + (level + 1));
     gameBoard.drawGameBoard(x);
-
+    isStart = false;
+    showButton();
 }
 
 // Hàm làm trắng WHen Run
@@ -185,4 +186,14 @@ function resetVariables() {
     win2 = false;
     arrRun = [];
     count = 0;
+}
+
+showButton = () =>{
+    if (isStart) {
+        document.getElementById('button-game').style.display='none';
+        document.getElementById('button-reset').style.display='inline-block';
+    }else {
+        document.getElementById('button-reset').style.display='none';
+        document.getElementById('button-game').style.display='inline-block';
+    }
 }

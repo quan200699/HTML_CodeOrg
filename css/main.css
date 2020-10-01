@@ -221,6 +221,19 @@
     border-radius: .2em;
 }
 
+#button-reset {
+    display: inline-block;
+    border: 1px solid #0094ca;
+    background-color: #0094ca;
+    text-align: left;
+    width: 93px;
+    height: 40px;
+    margin: auto;
+    color: white;
+    font-size: 20px;
+    border-radius: .2em;
+}
+
 .speech-bubble {
     position: relative;
     background: #ffffff;
