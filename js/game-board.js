@@ -17,7 +17,7 @@ function GameBoard(id, level) {
         })
         gameBoard += `</div>`
         document.getElementById(GAME_PLAY_ID).innerHTML = gameBoard;
-        drawBird(x, 50);
+        drawBird('idle_avatar.gif', x, 50);
     }
 }
 
@@ -42,8 +42,8 @@ function findIndexBird(arrMap) {
     }
 }
 
-drawBird = (width, height) => {
-    document.getElementById('bird').style.background = `url(./img/idle_avatar.gif) ${width}px ${height}px`;
+drawBird = (img, width, height) => {
+    document.getElementById('bird').style.background = `url(./img/${img}) ${width}px ${height}px`;
     document.getElementById('bird').style.backgroundSize = '200px';
     document.getElementById('bird').style.width = '50px';
     document.getElementById('bird').style.height = '50px';
@@ -65,6 +65,7 @@ function checkOnMove(index, i, gameBoard, arrMap) {
             win1 = true;
             win2 = true;
         } else {
+            // drawBird('wall_avatar.png', x, 50);
             alert("bạn đã sai")
             win1 = false;
             win2 = false;
@@ -79,7 +80,7 @@ function makeChange(indexArrRun, i, gameBoard, arrMap) {
     } else {
         if (arrRun[indexArrRun] === LEFT) {
             x += 50;
-            drawBird(x, 50)
+            drawBird('idle_avatar.gif', x, 50)
             if (index === 8) {
                 index = 1;
             } else if (index === 1) {
@@ -92,7 +93,7 @@ function makeChange(indexArrRun, i, gameBoard, arrMap) {
         } else {
             if (arrRun[indexArrRun] === RIGHT) {
                 x -= 50;
-                drawBird(x, 50)
+                drawBird('idle_avatar.gif', x, 50)
                 if (index === 8) {
                     index = -1;
                 } else if (index === -1) {
@@ -134,7 +135,7 @@ function callFunction2(arrMap) {
                     gameBoard.level = eval("START_GAME" + (level + 1));
                     resetVariables();
                     clearWhenRun();
-                    x=100;
+                    x = 100;
                     gameBoard.drawGameBoard(x);
                     clearInterval(intervalId);
                 } else {
@@ -191,17 +192,17 @@ function resetVariables() {
     win2 = false;
     arrRun = [];
     count = 0;
-    isStart=false;
-    index=8
+    isStart = false;
+    index = 8
     showButton();
 }
 
-showButton = () =>{
+showButton = () => {
     if (isStart) {
-        document.getElementById('button-game').style.display='none';
-        document.getElementById('button-reset').style.display='inline-block';
-    }else {
-        document.getElementById('button-reset').style.display='none';
-        document.getElementById('button-game').style.display='inline-block';
+        document.getElementById('button-game').style.display = 'none';
+        document.getElementById('button-reset').style.display = 'inline-block';
+    } else {
+        document.getElementById('button-reset').style.display = 'none';
+        document.getElementById('button-game').style.display = 'inline-block';
     }
 }
