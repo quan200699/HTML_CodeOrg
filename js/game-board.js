@@ -191,6 +191,9 @@ function resetVariables() {
     win2 = false;
     arrRun = [];
     count = 0;
+    isStart=false;
+    index=8
+    showButton();
 }
 
 showButton = () =>{
