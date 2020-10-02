@@ -66,7 +66,7 @@ function checkOnMove(index, i, gameBoard, arrMap) {
             win2 = true;
         } else {
             // drawBird('wall_avatar.png', x, 50);
-            alert("bạn đã sai")
+            // alert("bạn đã sai")
             win1 = false;
             win2 = false;
         }
