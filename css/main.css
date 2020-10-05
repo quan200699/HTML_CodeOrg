@@ -17,7 +17,7 @@
     height: 100%;
     width: 88%;
     background-color: #fff;
-    float: right;
+    float: left;
 }
 
 .game-play-body {
@@ -131,8 +131,8 @@
 
 .right {
     width: 77%;
-    float: right;
-    margin-right: 15px;
+    float: left;
+    margin-left: 25px;
 }
 
 #instructions-header {
