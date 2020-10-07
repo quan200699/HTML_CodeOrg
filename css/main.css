@@ -43,7 +43,7 @@
 }
 
 .block {
-    width: 115px;
+    width: 55%;
     background-color: rgb(0, 176, 189);
     margin-top: 15px;
     margin-bottom: 20px;
@@ -52,6 +52,7 @@
     border-top-left-radius: .4em;
     border-bottom-left-radius: .4em;
     position: relative;
+    font-size: 0.8vw;
 }
 
 .block:after {
