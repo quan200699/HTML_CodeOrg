@@ -6,7 +6,7 @@
 
 #blocks {
     height: 100%;
-    width: 12%;
+    width: 11%;
     background-color: #ddd;
     border-bottom-right-radius: 3%;
     border-top-right-radius: 3%;
@@ -15,7 +15,7 @@
 
 #work-space {
     height: 100%;
-    width: 88%;
+    width: 89%;
     background-color: #fff;
     float: left;
 }
@@ -35,15 +35,16 @@
 }
 
 #blocks-header {
-    width: 12%;
+    width: 11%;
 }
 
 #work-space-header {
-    width: 88%;
+    width: 89%;
 }
 
 .block {
     width: 60%;
+    max-width: 100px;
     background-color: rgb(0, 176, 189);
     margin-top: 15px;
     margin-bottom: 20px;
@@ -155,7 +156,8 @@
 
 #begin-block {
     background-color: rgb(253, 164, 0);
-    width: 93px;
+    width: 8%;
+    max-width: 93px;
     color: white;
     margin-left: 15px;
     margin-top: 15px;

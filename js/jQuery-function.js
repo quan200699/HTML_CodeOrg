@@ -16,7 +16,7 @@ $(function () {
         // revert: "invalid", // when not dropped, the item will revert back to its initial position
         // // containment: "document",
         helper: "clone",
-        cursor: "move"
+        cursor: "move",
     });
 
     // kéo thả vào when run
