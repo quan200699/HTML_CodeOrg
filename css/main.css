@@ -1,7 +1,14 @@
 #game-board {
     background-image: url("../img/background.png");
+    width: 100%;
     max-width: 400px;
     max-height: 400px;
+}
+
+#game-board:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
 #blocks {
@@ -127,14 +134,16 @@
 }
 
 .left {
-    max-width: 400px;
+    width: 23%;
+    height: 70vh;
     float: left;
 }
 
 .right {
     width: 77%;
+    height: 100%;
+    right: 70vh;
     float: left;
-    margin-left: 25px;
 }
 
 #instructions-header {
@@ -173,28 +182,38 @@
 }
 
 .obstacles {
-    width: 50px;
-    height: 50px;
+    width: 12.5%;
+    height: 12.5%;
+    max-height: 50px;
+    max-width: 50px;
+    background-size: 100%;
     background: url("../img/tiles.png") 50px 50px;
 }
 
 .pigs {
     background: url("../img/goalIdle.gif");
-    background-size: 50px;
-    width: 50px;
-    height: 50px;
+    background-size: 100%;
+    position: sticky;
+    width: 12.5%;
+    height: 12.5%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .birds {
     background: url("../img/idle_avatar.gif") 100px 50px;
-    background-size: 200px;
-    width: 50px;
-    height: 50px;
+    background-size: 100% 100%;
+    width: 12.5%;
+    height: 12.5%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .space {
-    width: 50px;
-    height: 50px;
+    width: 12.5%;
+    height: 12.5%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 #button-start {
