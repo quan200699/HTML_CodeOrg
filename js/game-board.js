@@ -6,13 +6,13 @@ function GameBoard(id, level) {
         gameBoard += `<div class="row" id="${this.id}">`
         this.level.map(value => {
             if (value === '0') {
-                gameBoard += `<div class="square obstacles"></div>`
+                gameBoard += `<div class="obstacles"></div>`
             } else if (value === '1') {
-                gameBoard += `<div class="square birds" id="bird" style="background-size: 100%"></div>`
+                gameBoard += `<div class="birds" id="bird" style="background-size: 200px"></div>`
             } else if (value === '2') {
-                gameBoard += `<div class="square pigs"></div>`
+                gameBoard += `<div class="pigs"></div>`
             } else {
-                gameBoard += `<div class="square space"></div>`
+                gameBoard += `<div class="space"></div>`
             }
         })
         gameBoard += `</div>`
@@ -44,7 +44,7 @@ function findIndexBird(arrMap) {
 
 drawBird = (img, width, height) => {
     document.getElementById('bird').style.background = `url(./img/${img}) ${width}px ${height}px`;
-    document.getElementById('bird').style.backgroundSize = '100%';
+    document.getElementById('bird').style.backgroundSize = '200px';
     document.getElementById('bird').style.width = '12.5%';
     document.getElementById('bird').style.height = '12.5%';
 

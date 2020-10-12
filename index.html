@@ -87,9 +87,19 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src="js/general-variable.js"></script>
-<script src="js/bird.js"></script>
-<script src="js/pig.js"></script>
 <script src="js/game-board.js"></script>
 <script src="js/main.js"></script>
+<script>
+    window.addEventListener("load", function (e){
+        let element = document.getElementById("game-board");
+        let height = element.clientWidth;
+        element.style.height = height + 'px';
+    })
+    window.addEventListener("resize", function (e) {
+        let element = document.getElementById("game-board");
+        let height = element.clientWidth;
+        element.style.height = height + 'px';
+    });
+</script>
 </body>
 </html>
