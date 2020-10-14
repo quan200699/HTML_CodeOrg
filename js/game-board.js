@@ -171,6 +171,9 @@ function resetGame() {
     gameBoard.level = eval("START_GAME" + (level + 1));
     x = 100;
     gameBoard.drawGameBoard(x);
+    let element = document.getElementById("game-board");
+    let height = element.clientWidth;
+    element.style.height = height + 'px';
     isStart = false;
     showButton();
 }
