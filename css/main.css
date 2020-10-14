@@ -94,12 +94,13 @@
 
 .play-block {
     background-color: rgb(0, 176, 189);
-    width: 115px;
+    width: 8%;
     color: white;
     margin-left: 15px;
     border-top-left-radius: .4em;
     border-bottom-left-radius: .4em;
     position: relative;
+    font-size: 0.8vw;
 }
 
 .play-block:after {
