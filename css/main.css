@@ -61,7 +61,7 @@
     border-top-left-radius: .4em;
     border-bottom-left-radius: .4em;
     position: relative;
-    font-size: 0.8vw;
+    font-size: 0.7vw;
 }
 
 .block:after {
@@ -101,7 +101,7 @@
     border-top-left-radius: .4em;
     border-bottom-left-radius: .4em;
     position: relative;
-    font-size: 0.8vw;
+    font-size: 0.7vw;
 }
 
 .play-block:after {
@@ -172,7 +172,7 @@
     color: white;
     margin-left: 15px;
     margin-top: 15px;
-    font-size: 0.8vw;
+    font-size: 0.7vw;
 }
 
 #begin-block:after {
