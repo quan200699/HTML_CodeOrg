@@ -52,7 +52,7 @@
 
 .block {
     width: 60%;
-    max-width: 100px;
+    max-width: 115px;
     background-color: rgb(0, 176, 189);
     margin-top: 15px;
     margin-bottom: 20px;
@@ -95,7 +95,7 @@
 .play-block {
     background-color: rgb(0, 176, 189);
     width: 8%;
-    max-width: 100px;
+    max-width: 115px;
     color: white;
     margin-left: 15px;
     border-top-left-radius: .4em;
