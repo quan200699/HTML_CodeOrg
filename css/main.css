@@ -193,7 +193,7 @@
 }
 
 .pigs {
-    background: url("../img/goalIdle.gif");
+    background: url("../img/goalIdle.gif") no-repeat;
     background-size: 100%;
     position: sticky;
     width: 12.5%;
