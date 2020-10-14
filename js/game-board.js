@@ -71,6 +71,9 @@ function checkOnMove(index, i, gameBoard, arrMap) {
             win2 = false;
         }
     }
+    let element = document.getElementById("game-board");
+    let height = element.clientWidth;
+    element.style.height = height + 'px';
 }
 
 // Hàm thực hiện thay đổi theo mảng RUN
