@@ -184,12 +184,13 @@
 }
 
 .obstacles {
+    background: url("../img/tiles.png") no-repeat;
+    background-size: 100%;
+    position: sticky;
     width: 12.5%;
     height: 12.5%;
     max-height: 50px;
     max-width: 50px;
-    background-size: 100%;
-    background: url("../img/tiles.png") 50px 50px;
 }
 
 .pigs {
