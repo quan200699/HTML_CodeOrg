@@ -43,7 +43,7 @@ function findIndexBird(arrMap) {
 }
 
 drawBird = (img, width, height) => {
-    document.getElementById('bird').style.background = `url(./img/${img}) ${width}px ${height}px`;
+    document.getElementById('bird').style.background = `url(./assets/img/${img}) ${width}px ${height}px`;
     document.getElementById('bird').style.backgroundSize = '200px';
     document.getElementById('bird').style.width = '12.5%';
     document.getElementById('bird').style.height = '12.5%';
